@@ -31,6 +31,9 @@ public static String simpleArithmeticExpression() {
 	//operands only integer numbers
 	//no brackets 
 	String operand = integerNumberExp();
+	return commonArithmeticExpression(operand);
+}
+private static String commonArithmeticExpression(String operand) {
 	String operation = operationExp();
 	return String.format("%1$s(%2$s%1$s)*", operand, operation);
 }
@@ -43,10 +46,19 @@ private static String integerNumberExp() {
 	return "(\\s*\\d+\\s*)";
 }
 public static String arithmeticExpression() {
-	//TODO
 	//operand - any number or Java variable name
 	//operation - the same as for simpleArithmeticExpression
 	//brackets '(' ')' are allowed
-	return null;
+	String operand = arithmeticOperandExpression();
+	return commonArithmeticExpression(operand);
+}
+private static String arithmeticOperandExpression() {
+	String variableExp = javaVariable();
+	String numberExp = anyNumber();
+	return String.format("[\\s(]*(%1$s|%2$s)[\\s)]*", variableExp, numberExp);
+}
+private static String anyNumber() {
+	
+	return "\\d*\\.?\\d+";
 }
 }
