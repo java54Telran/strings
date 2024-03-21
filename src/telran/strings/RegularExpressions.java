@@ -55,10 +55,10 @@ public static String arithmeticExpression() {
 private static String arithmeticOperandExpression() {
 	String variableExp = javaVariable();
 	String numberExp = anyNumber();
-	return String.format("[\\s(]*(%1$s|%2$s)[\\s)]*", variableExp, numberExp);
+	return String.format("[\\s(]*(%s|%s)[\\s)]*", variableExp, numberExp);
 }
 private static String anyNumber() {
 	
-	return "\\d*\\.?\\d+";
+	return "(\\d*\\.?\\d+|d+\\.)";
 }
 }

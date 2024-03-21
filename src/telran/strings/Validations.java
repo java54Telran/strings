@@ -10,8 +10,7 @@ public static boolean isArithmeticExpression(String expression) {
 	//if after passing whole string counter != 0 returning false
 	String regex = RegularExpressions.arithmeticExpression();
 	boolean regexMatch = expression.matches(regex);
-	boolean parityMatch = isBracketsParity(expression);
-	return  regexMatch && parityMatch;
+	return  regexMatch && isBracketsParity(expression);
 }
 
 private static boolean isBracketsParity(String expression) {
